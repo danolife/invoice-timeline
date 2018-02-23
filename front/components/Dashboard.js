@@ -1,15 +1,14 @@
 import css from "./Dashboard.scss";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
+import Invoice from "./Invoice";
 
-const Dashboard = ({ loading, data }) => {
+const Dashboard = ({ data }) => {
   return (
     <div className={css.Dashboard}>
-      Invoices:
+      <h1>InvoiceX</h1>
       {data.invoices.map(invoice => (
-        <div>
-          {invoice.reference} / {invoice.amount}€
-        </div>
+        <Invoice key={invoice.reference} invoice={invoice} />
       ))}
     </div>
   );
@@ -23,6 +22,9 @@ export const DashboardQuery = gql`
       dueDate
       creationDate
       amount
+      customer {
+        name
+      }
     }
   }
 `;
