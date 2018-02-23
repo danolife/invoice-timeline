@@ -2,17 +2,21 @@ import { makeExecutableSchema } from "graphql-tools";
 import resolvers from "./resolvers";
 
 const typeDefs = `
-type User {
-  name: String
-  profilePicture: String
-  company: Company
+type Invoice {
+  id: ID
+  reference: String
+  status: String
+  dueDate: String
+  creationDate: String
+  amount: Int
+  customer: Customer
 }
-type Company {
+type Customer {
   name: String
-  members: [User]
+  picture: String
 }
 type Query {
-  user: User
+  invoices: [Invoice]
 }
 `;
 
