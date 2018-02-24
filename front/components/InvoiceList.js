@@ -3,11 +3,13 @@ import { graphql } from "react-apollo";
 import Invoice from "./Invoice";
 import css from "./Invoice.scss";
 import StatusFilter from "../components/StatusFilter";
+import SearchFilter from "../components/SearchFilter";
 import { Component } from "react";
 
 class InvoiceList extends Component {
   state = {
-    filter: ""
+    filter: "",
+    search: ""
   };
 
   render = () => {
@@ -15,6 +17,7 @@ class InvoiceList extends Component {
     return (
       <div>
         <StatusFilter onChange={filter => this.setState({ filter })} />
+        <SearchFilter onChange={search => this.setState({ search })} />
         <div className={css.InvoiceListHeader}>
           <div className={css.cell}>Reference</div>
           <div className={css.cell}>Amount</div>
@@ -28,6 +31,7 @@ class InvoiceList extends Component {
             key={invoice.reference}
             invoice={invoice}
             filter={this.state.filter}
+            search={this.state.search}
           />
         ))}
       </div>
