@@ -4,9 +4,11 @@ import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import schema from "./schema";
 import cors from "cors";
 import { database } from "./database";
+import fakeData from "./fakeData";
 
 const start = async () => {
   await database.sync({ force: true });
+  await fakeData.populate();
   const app = express();
   app.use(cors());
   app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));

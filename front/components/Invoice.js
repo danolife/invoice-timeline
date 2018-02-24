@@ -13,7 +13,7 @@ const Invoice = ({ invoice }) => {
       <div className={css.cell}>{invoice.dueDate}</div>
       <div className={css.cell}>{invoice.creationDate}</div>
       <div className={css.cell}>{invoice.status}</div>
-      <div className={css.cell}>{invoice.customer.name}</div>
+      {/* <div className={css.cell}>{invoice.customer.name}</div> */}
     </div>
   );
 };

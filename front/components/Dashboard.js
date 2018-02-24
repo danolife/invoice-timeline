@@ -18,13 +18,7 @@ export const DashboardQuery = gql`
   query invoices {
     invoices {
       reference
-      status
-      dueDate
-      creationDate
       amount
-      customer {
-        name
-      }
     }
   }
 `;

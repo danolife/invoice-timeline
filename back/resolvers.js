@@ -1,8 +1,10 @@
-import invoices from "./fakeData";
+import { Invoice } from "./database";
 
 const resolvers = {
   Query: {
-    invoices: () => {
+    invoices: async () => {
+      const invoices = await Invoice.findAll();
+      console.log(invoices);
       return invoices;
     }
   }

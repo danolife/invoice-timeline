@@ -1,33 +1,21 @@
-const customer = {
-  name: "Sonos",
-  picture: "https://logo.clearbit.com/sonos.com"
+import { User, Invoice } from "./database";
+
+const populate = async () => {
+  const user = await User.create({
+    name: "Bertrand Giraux",
+    picture: "https://api.adorable.io/avatars/1"
+  });
+
+  const Invoice1 = await Invoice.create({
+    amount: 100,
+    dueAt: "2018-03-01",
+    reference: "Invoice-1"
+  });
+  const Invoice2 = await Invoice.create({
+    amount: 1000,
+    dueAt: "2018-04-01",
+    reference: "Invoice-2"
+  });
 };
 
-const invoices = [
-  {
-    reference: "Invoice-1",
-    status: "Due",
-    dueDate: "2018-03-01",
-    creationDate: "2018-01-01",
-    amount: 133700,
-    customer
-  },
-  {
-    reference: "Invoice-2",
-    status: "Due",
-    dueDate: "2018-03-04",
-    creationDate: "2018-02-01",
-    amount: 10500,
-    customer
-  },
-  {
-    reference: "Invoice-3",
-    status: "Overdue",
-    dueDate: "2018-01-01",
-    creationDate: "2017-11-12",
-    amount: 40200,
-    customer
-  }
-];
-
-export default invoices;
+export default { populate };

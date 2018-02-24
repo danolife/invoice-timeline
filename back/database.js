@@ -68,4 +68,13 @@ Comment.belongsTo(User, { as: "createdBy", foreignKey: "createdById" });
 User.hasMany(Reminder, { foreignKey: "createdById" });
 Reminder.belongsTo(User, { as: "createdBy", foreignKey: "createdById" });
 
-export { database };
+export {
+  database,
+  Invoice,
+  Comment,
+  Customer,
+  Payment,
+  Reminder,
+  Status,
+  User
+};
