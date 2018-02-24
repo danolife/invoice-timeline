@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
-import Invoice from "./Invoice";
-import css from "./Invoice.scss";
+import InvoiceListElement from "./InvoiceListElement";
+import css from "./InvoiceList.scss";
 import StatusFilter from "../components/StatusFilter";
 import SearchFilter from "../components/SearchFilter";
 import { Component } from "react";
@@ -27,7 +27,7 @@ class InvoiceList extends Component {
           <div className={css.cell}>Customer</div>
         </div>
         {data.invoices.map(invoice => (
-          <Invoice
+          <InvoiceListElement
             key={invoice.reference}
             invoice={invoice}
             filter={this.state.filter}

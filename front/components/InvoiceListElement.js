@@ -1,9 +1,9 @@
-import css from "./Invoice.scss";
+import css from "./InvoiceList.scss";
 import moment from "moment";
 import _ from "lodash";
 import Link from "next/link";
 
-const Invoice = ({ invoice, filter, search }) => {
+const InvoiceListElement = ({ invoice, filter, search }) => {
   const dateFormat = "YYYY-MM-DD";
   const formattedAmount = (invoice.amount / 100).toLocaleString("en-US", {
     style: "currency",
@@ -63,4 +63,4 @@ const Invoice = ({ invoice, filter, search }) => {
   );
 };
 
-export default Invoice;
+export default InvoiceListElement;
