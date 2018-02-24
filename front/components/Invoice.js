@@ -1,6 +1,7 @@
 import css from "./Invoice.scss";
 import moment from "moment";
 import _ from "lodash";
+import Link from "next/link";
 
 const Invoice = ({ invoice, filter, search }) => {
   const dateFormat = "YYYY-MM-DD";
@@ -10,6 +11,7 @@ const Invoice = ({ invoice, filter, search }) => {
   });
   const formattedDueDate = moment(invoice.dueAt).format(dateFormat);
   const formattedCreationDate = moment(invoice.createdAt).format(dateFormat);
+
   if (filter && filter !== invoice.currentStatus.status) {
     return "";
   }
@@ -47,7 +49,11 @@ const Invoice = ({ invoice, filter, search }) => {
 
   return (
     <div className={css.Invoice}>
-      <div className={css.cell}>{invoice.reference}</div>
+      <div className={css.cell}>
+        <Link href={`/invoice-details?id=${invoice.id}`}>
+          <a>{invoice.reference}</a>
+        </Link>
+      </div>
       <div className={css.cell}>{formattedAmount}</div>
       <div className={css.cell}>{formattedDueDate}</div>
       <div className={css.cell}>{formattedCreationDate}</div>

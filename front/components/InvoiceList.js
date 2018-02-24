@@ -42,6 +42,7 @@ class InvoiceList extends Component {
 export const InvoiceListQuery = gql`
   query invoices {
     invoices {
+      id
       reference
       amount
       dueAt
