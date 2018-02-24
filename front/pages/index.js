@@ -1,12 +1,12 @@
 import InvoiceList from "../components/InvoiceList";
-import css from "../style/layout.scss";
+import App from "../components/App";
 import withData from "../lib/withData";
 
 const index = () => (
-  <div className={css.container}>
+  <App>
     <h1>InvoiceX</h1>
     <InvoiceList />
-  </div>
+  </App>
 );
 
 export default withData(index);

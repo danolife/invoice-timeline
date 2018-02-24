@@ -56,6 +56,7 @@ enum StatusEnum {
 }
 type Query {
   invoices: [Invoice]
+  invoice(id: Int!): Invoice
 }
 `;
 

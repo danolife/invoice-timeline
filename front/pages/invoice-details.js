@@ -1,11 +1,13 @@
+import InvoiceDetails from "../components/InvoiceDetails";
+import App from "../components/App";
 import withData from "../lib/withData";
-import css from "../style/layout.scss";
 
-const invoiceDetails = () => (
-  <div className={css.container}>
+const invoiceDetails = ({ url: { query: { id } } }) => (
+  <App>
     <h1>InvoiceX</h1>
     <h2>Invoice details</h2>
-  </div>
+    <InvoiceDetails id={id} />
+  </App>
 );
 
 export default withData(invoiceDetails);

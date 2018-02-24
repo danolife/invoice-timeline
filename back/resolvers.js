@@ -2,7 +2,8 @@ import { Invoice } from "./database";
 
 const resolvers = {
   Query: {
-    invoices: () => Invoice.findAll()
+    invoices: () => Invoice.findAll(),
+    invoice: (r, { id }) => Invoice.findById(id)
   },
   Invoice: {
     customer: invoice => invoice.getCustomer(),
