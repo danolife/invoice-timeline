@@ -2,7 +2,7 @@ import InvoiceDetails from "../components/InvoiceDetails";
 import App from "../components/App";
 import withData from "../lib/withData";
 
-const invoiceDetails = ({ url: { query: { id } } }) => (
+const invoice = ({ url: { query: { id } } }) => (
   <App>
     <h1>InvoiceX</h1>
     <h2>Invoice details</h2>
@@ -10,4 +10,4 @@ const invoiceDetails = ({ url: { query: { id } } }) => (
   </App>
 );
 
-export default withData(invoiceDetails);
+export default withData(invoice);
