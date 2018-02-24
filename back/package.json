@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":
-      "nodemon ./index.js --exec 'babel-node --inspect' -r dotenv/config database.js",
+    "dev": "nodemon ./index.js --exec 'babel-node --inspect' -r dotenv/config database.js",
     "start": "babel-node ./index.js"
   },
   "author": "",
@@ -16,6 +15,7 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
+    "faker": "^4.1.0",
     "graphql": "^0.13.1",
     "graphql-tools": "^2.21.0",
     "nodemon": "^1.15.1",
@@ -24,7 +24,9 @@
     "sequelize": "^4.33.4"
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      "env"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

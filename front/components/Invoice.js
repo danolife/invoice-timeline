@@ -10,10 +10,10 @@ const Invoice = ({ invoice }) => {
     <div className={css.Invoice}>
       <div className={css.cell}>{invoice.reference}</div>
       <div className={css.cell}>{formattedAmount}</div>
-      <div className={css.cell}>{invoice.dueDate}</div>
-      <div className={css.cell}>{invoice.creationDate}</div>
-      <div className={css.cell}>{invoice.status}</div>
-      {/* <div className={css.cell}>{invoice.customer.name}</div> */}
+      <div className={css.cell}>{invoice.dueAt}</div>
+      <div className={css.cell}>{invoice.createdAt}</div>
+      <div className={css.cell}>{invoice.currentStatus.status}</div>
+      <div className={css.cell}>{invoice.customer.name}</div>
     </div>
   );
 };

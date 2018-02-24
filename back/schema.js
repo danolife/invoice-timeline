@@ -9,6 +9,7 @@ type Invoice {
   createdAt: String
   amount: Int
   customer: Customer
+  currentStatus: Status
   statuses: [Status]
   comments: [Comment]
   payments: [Payment]
