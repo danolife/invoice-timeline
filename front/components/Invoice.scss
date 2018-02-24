@@ -1,8 +1,11 @@
+.InvoiceListHeader,
 .Invoice {
-  background-color: white;
   padding: 10px;
   margin-bottom: 2px;
   display: flex;
+}
+.Invoice {
+  background-color: white;
 }
 .cell {
   width: 16%;
