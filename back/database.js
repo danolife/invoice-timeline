@@ -1,9 +1,16 @@
 import Sequelize from "sequelize";
 
-const database = new Sequelize("invoice_timeline", "postgres", "", {
-  host: "localhost",
-  dialect: "postgres"
-});
+require("dotenv").config();
+
+const database = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: "postgres"
+  }
+);
 
 const Invoice = database.define("invoice", {
   amount: Sequelize.INTEGER,
