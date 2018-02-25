@@ -3,6 +3,7 @@ import moment from "moment";
 import _ from "lodash";
 import Link from "next/link";
 import { Component } from "react";
+import Picture from "./Picture";
 
 class InvoiceListElement extends Component {
   render = () => {
@@ -61,7 +62,10 @@ class InvoiceListElement extends Component {
         <div className={css.cell}>{formattedDueDate}</div>
         <div className={css.cell}>{formattedCreationDate}</div>
         <div className={css.cell}>{invoice.currentStatus.name}</div>
-        <div className={css.cell}>{invoice.customer.name}</div>
+        <div className={css.cell}>
+          <Picture url={invoice.customer.picture} />
+          {invoice.customer.name}
+        </div>
       </div>
     );
   };

@@ -50,6 +50,7 @@ export const InvoiceListQuery = gql`
       customer {
         id
         name
+        picture
       }
       currentStatus {
         id
