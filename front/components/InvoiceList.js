@@ -14,6 +14,9 @@ class InvoiceList extends Component {
 
   render = () => {
     const { data } = this.props;
+    if (data.loading) {
+      return <div>Loading</div>;
+    }
     return (
       <div>
         <StatusFilter onChange={filter => this.setState({ filter })} />
