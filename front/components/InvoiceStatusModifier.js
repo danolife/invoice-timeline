@@ -27,14 +27,18 @@ const InvoiceStatusModifier = ({ data, mutate }) => {
     return <div>Loading</div>;
   }
 
-  if ([PAID, DISPUTE].indexOf(data.invoice.currentStatus.name) > -1) {
-    return "";
-  }
-
   return (
     <div>
-      <button onClick={markAsPaid}>Mark as paid</button>
-      <button onClick={startDispute}>Dispute</button>
+      {data.invoice.currentStatus.name !== PAID ? (
+        <button onClick={markAsPaid}>Mark as paid</button>
+      ) : (
+        ""
+      )}
+      {data.invoice.currentStatus.name !== DISPUTE ? (
+        <button onClick={startDispute}>Dispute</button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
