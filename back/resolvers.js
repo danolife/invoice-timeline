@@ -1,4 +1,4 @@
-import { Invoice, Comment, User } from "./database";
+import { Invoice, Comment, User, Status } from "./database";
 
 const resolvers = {
   Query: {
@@ -13,6 +13,13 @@ const resolvers = {
         invoiceId,
         createdById: createdBy.id
       });
+    },
+    changeInvoiceStatus: async (r, { id, statusName }) => {
+      const status = await Status.create({
+        name: statusName,
+        invoiceId: id
+      });
+      return Invoice.findById(id);
     }
   },
   Invoice: {

@@ -15,24 +15,30 @@ const InvoiceStatus = ({ data }) => {
       <div>{data.invoice.currentStatus.name}</div>
       {data.invoice.currentStatus.name === "PAID" ? (
         <div>
-          <div>
-            <div className={css.title}>Payment date</div>
-            <div className={css.value}>
-              {moment(lastPayment.createdAt).format("YYYY-MM-DD")}
+          {lastPayment ? (
+            <div>
+              <div>
+                <div className={css.title}>Payment date</div>
+                <div className={css.value}>
+                  {moment(lastPayment.createdAt).format("YYYY-MM-DD")}
+                </div>
+              </div>
+              <div>
+                <div className={css.title}>Payment method</div>
+                <div className={css.value}>Wire transfer</div>
+              </div>
+              <div>
+                <div className={css.title}>Payment</div>
+                <div className={css.value}>{lastPayment.id}</div>
+              </div>
+              <div>
+                <div className={css.title}>Wallet</div>
+                <div className={css.value}>Wallet EUR</div>
+              </div>
             </div>
-          </div>
-          <div>
-            <div className={css.title}>Payment method</div>
-            <div className={css.value}>Wire transfer</div>
-          </div>
-          <div>
-            <div className={css.title}>Payment</div>
-            <div className={css.value}>{lastPayment.id}</div>
-          </div>
-          <div>
-            <div className={css.title}>Wallet</div>
-            <div className={css.value}>Wallet EUR</div>
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       ) : (
         ""

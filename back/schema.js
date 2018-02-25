@@ -61,6 +61,7 @@ type Query {
 }
 type Mutation {
   addComment(invoiceId: Int!, content: String!): Comment
+  changeInvoiceStatus(id: Int!, statusName: StatusNames!): Invoice
 }
 `;
 

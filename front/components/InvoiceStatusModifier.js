@@ -1,0 +1,81 @@
+import gql from "graphql-tag";
+import { graphql, compose } from "react-apollo";
+import { PAID, DISPUTE } from "../../invoiceStatuses";
+import { timelineQuery } from "./InvoiceTimeline";
+import { statusQuery } from "./InvoiceStatus";
+
+const InvoiceStatusModifier = ({ data, mutate }) => {
+  const markAsPaid = () => {
+    mutate({
+      variables: {
+        id: data.invoice.id,
+        statusName: PAID
+      }
+    });
+  };
+
+  if (data.loading) {
+    return <div>Loading</div>;
+  }
+
+  if ([PAID, DISPUTE].indexOf(data.invoice.currentStatus.name) > -1) {
+    return "";
+  }
+
+  return (
+    <div>
+      <button onClick={markAsPaid}>Mark as paid</button>
+      <button>Dispute</button>
+    </div>
+  );
+};
+
+export const invoiceStatusModifierQuery = gql`
+  query invoice($id: Int!) {
+    invoice(id: $id) {
+      id
+      currentStatus {
+        id
+        name
+      }
+    }
+  }
+`;
+
+export const changeStatusMutation = gql`
+  mutation changeInvoiceStatus($id: Int!, $statusName: StatusNames!) {
+    changeInvoiceStatus(id: $id, statusName: $statusName) {
+      id
+    }
+  }
+`;
+
+export default compose(
+  graphql(invoiceStatusModifierQuery),
+  graphql(changeStatusMutation, {
+    options: {
+      refetchQueries: ({ data: { changeInvoiceStatus: { id } } }) => {
+        return [
+          {
+            query: timelineQuery,
+            variables: {
+              id
+            }
+          },
+          {
+            query: invoiceStatusModifierQuery,
+            variables: {
+              id
+            }
+          },
+          {
+            query: statusQuery,
+            variables: {
+              id
+            }
+          }
+        ];
+      }
+    }
+  })
+)(InvoiceStatusModifier);
