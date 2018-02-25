@@ -6,6 +6,7 @@ import StatusEvent from "./TimelineEvents/StatusEvent";
 import ReminderEvent from "./TimelineEvents/ReminderEvent";
 import CommentEvent from "./TimelineEvents/CommentEvent";
 import PaymentEvent from "./TimelineEvents/PaymentEvent";
+import css from "./InvoiceTimeline.scss";
 
 const InvoiceTimeline = ({ data: { loading, invoice } }) => {
   if (loading) {
@@ -28,7 +29,7 @@ const InvoiceTimeline = ({ data: { loading, invoice } }) => {
   };
 
   return (
-    <div>
+    <div className={css.InvoiceTimeline}>
       {events.map(event => {
         const CustomEventTag = eventComponents[`${event.__typename}Event`];
         return (
