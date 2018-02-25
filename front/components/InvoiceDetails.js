@@ -11,7 +11,6 @@ const InvoiceDetails = ({ data }) => {
 
   return (
     <div>
-      <h3>Details</h3>
       <div>
         <div className={css.title}>Created</div>
         <div className={css.value}>
@@ -43,10 +42,12 @@ const InvoiceDetails = ({ data }) => {
 export const detailsQuery = gql`
   query invoice($id: Int!) {
     invoice(id: $id) {
+      id
       reference
       createdAt
       amount
       customer {
+        id
         name
       }
     }

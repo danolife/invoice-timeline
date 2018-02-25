@@ -48,10 +48,12 @@ export const InvoiceListQuery = gql`
       dueAt
       createdAt
       customer {
+        id
         name
       }
       currentStatus {
-        status
+        id
+        name
       }
     }
   }

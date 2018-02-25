@@ -6,6 +6,7 @@ const resolvers = {
     invoice: (r, { id }) => Invoice.findById(id)
   },
   Invoice: {
+    comments: invoice => invoice.getComments(),
     customer: invoice => invoice.getCustomer(),
     currentStatus: async invoice => {
       const statuses = await invoice.getStatuses({
@@ -14,6 +15,11 @@ const resolvers = {
       });
       return statuses.shift();
     },
+    payments: invoice =>
+      invoice.getPayments({
+        order: [["createdAt", "DESC"]]
+      }),
+    reminders: invoice => invoice.getReminders(),
     statuses: invoice =>
       invoice.getStatuses({
         order: [["createdAt", "DESC"]]

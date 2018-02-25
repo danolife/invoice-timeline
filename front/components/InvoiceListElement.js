@@ -12,7 +12,7 @@ const InvoiceListElement = ({ invoice, filter, search }) => {
   const formattedDueDate = moment(invoice.dueAt).format(dateFormat);
   const formattedCreationDate = moment(invoice.createdAt).format(dateFormat);
 
-  if (filter && filter !== invoice.currentStatus.status) {
+  if (filter && filter !== invoice.currentStatus.name) {
     return "";
   }
 
@@ -24,7 +24,7 @@ const InvoiceListElement = ({ invoice, filter, search }) => {
       invoice.amount,
       formattedDueDate,
       formattedCreationDate,
-      invoice.currentStatus.status,
+      invoice.currentStatus.name,
       invoice.customer.name
     ];
 
@@ -50,14 +50,14 @@ const InvoiceListElement = ({ invoice, filter, search }) => {
   return (
     <div className={css.Invoice}>
       <div className={css.cell}>
-        <Link href={`/invoice-details?id=${invoice.id}`}>
+        <Link href={`/invoice?id=${invoice.id}`}>
           <a>{invoice.reference}</a>
         </Link>
       </div>
       <div className={css.cell}>{formattedAmount}</div>
       <div className={css.cell}>{formattedDueDate}</div>
       <div className={css.cell}>{formattedCreationDate}</div>
-      <div className={css.cell}>{invoice.currentStatus.status}</div>
+      <div className={css.cell}>{invoice.currentStatus.name}</div>
       <div className={css.cell}>{invoice.customer.name}</div>
     </div>
   );
