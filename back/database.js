@@ -37,7 +37,7 @@ const Reminder = database.define("reminder", {
 });
 
 const Status = database.define("status", {
-  status: {
+  name: {
     type: Sequelize.ENUM,
     values: ["DUE", "OVERDUE", "PAID", "DISPUTE"]
   }

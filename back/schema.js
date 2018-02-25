@@ -40,7 +40,7 @@ type Reminder {
 }
 type Status {
   id: ID
-  status: StatusEnum
+  name: StatusNames
   createdAt: String
 }
 type User {
@@ -48,7 +48,7 @@ type User {
   name: String
   picture: String
 }
-enum StatusEnum {
+enum StatusNames {
   DUE
   OVERDUE
   PAID

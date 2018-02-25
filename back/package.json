@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js --exec 'babel-node --inspect' -r dotenv/config database.js",
-    "start": "babel-node ./index.js"
+    "dev":
+      "nodemon ./index.js --exec 'babel-node --inspect' -r dotenv/config database.js",
+    "start": "babel-node ./index.js",
+    "populate": "babel-node ./populateDatabase.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,15 +20,14 @@
     "faker": "^4.1.0",
     "graphql": "^0.13.1",
     "graphql-tools": "^2.21.0",
+    "moment": "^2.20.1",
     "nodemon": "^1.15.1",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.33.4"
   },
   "babel": {
-    "presets": [
-      "env"
-    ]
+    "presets": ["env"]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
