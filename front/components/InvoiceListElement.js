@@ -4,6 +4,7 @@ import _ from "lodash";
 import Link from "next/link";
 import { Component } from "react";
 import Picture from "./Picture";
+import Status from "./Status";
 
 class InvoiceListElement extends Component {
   render = () => {
@@ -61,7 +62,9 @@ class InvoiceListElement extends Component {
         <div className={css.cell}>{formattedAmount}</div>
         <div className={css.cell}>{formattedDueDate}</div>
         <div className={css.cell}>{formattedCreationDate}</div>
-        <div className={css.cell}>{invoice.currentStatus.name}</div>
+        <div className={css.cell}>
+          <Status name={invoice.currentStatus.name} />
+        </div>
         <div className={css.cell}>
           <Picture url={invoice.customer.picture} />
           {invoice.customer.name}

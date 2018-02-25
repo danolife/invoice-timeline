@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import moment from "moment";
 import css from "./InvoiceStatus.scss";
+import Status from "./Status";
 
 const InvoiceStatus = ({ data }) => {
   if (data.loading) {
@@ -12,7 +13,9 @@ const InvoiceStatus = ({ data }) => {
 
   return (
     <div>
-      <div>{data.invoice.currentStatus.name}</div>
+      <div className={css.status}>
+        <Status name={data.invoice.currentStatus.name} />
+      </div>
       {data.invoice.currentStatus.name === "PAID" ? (
         <div>
           {lastPayment ? (
