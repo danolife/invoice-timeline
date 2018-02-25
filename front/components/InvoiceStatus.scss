@@ -1,8 +1,24 @@
+.InvoiceStatus {
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+.flexFiller {
+  flex-grow: 1;
+}
 .detail {
   padding: 3px 0;
 }
-.status {
-  margin: 10px 0;
+.header {
+  display: flex;
+  align-items: center;
+}
+.headerTitle {
+  margin-right: 15px;
+}
+.content {
+  background-color: white;
+  padding: 10px;
 }
 .title {
   display: inline-block;

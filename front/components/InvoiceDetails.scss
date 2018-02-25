@@ -1,5 +1,14 @@
+.InvoiceDetails {
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
 .detail {
   padding: 3px 0;
+}
+.content {
+  background-color: white;
+  padding: 10px;
 }
 .title {
   display: inline-block;

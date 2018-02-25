@@ -3,23 +3,27 @@ import { graphql } from "react-apollo";
 import moment from "moment";
 import css from "./InvoiceStatus.scss";
 import Status from "./Status";
+import InvoiceStatusModifier from "./InvoiceStatusModifier";
 
 const InvoiceStatus = ({ data }) => {
   if (data.loading) {
-    return <div>Loading</div>;
+    return <div className={css.InvoiceStatus}>Loading</div>;
   }
 
   const lastPayment = [...data.invoice.payments].shift();
 
   return (
-    <div>
-      <div className={css.status}>
+    <div className={css.InvoiceStatus}>
+      <h3 className={css.header}>
+        <div className={css.headerTitle}>Status</div>
         <Status name={data.invoice.currentStatus.name} />
-      </div>
+        <div className={css.flexFiller} />
+        <InvoiceStatusModifier id={data.invoice.id} />
+      </h3>
       {data.invoice.currentStatus.name === "PAID" ? (
         <div>
           {lastPayment ? (
-            <div>
+            <div className={css.content}>
               <div className={css.detail}>
                 <div className={css.title}>Payment date</div>
                 <div className={css.value}>

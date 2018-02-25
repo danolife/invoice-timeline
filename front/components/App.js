@@ -5,7 +5,7 @@ const App = ({ children }) => (
   <div className={css.container}>
     <h1>
       <Link href="/" prefetch>
-        <a>InvoiceX</a>
+        <a class={css.link}>InvoiceX</a>
       </Link>
     </h1>
     {children}
