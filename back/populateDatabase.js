@@ -88,7 +88,7 @@ const populate = async () => {
   });
   const customers = [sonos, airbnb, thepricehub];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     const invoice = await createRandomInvoice();
     const customerIndex = await faker.random.number(customers.length - 1);
     await invoice.setCustomer(customers[customerIndex]);
