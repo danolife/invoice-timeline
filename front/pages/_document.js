@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
         <style>{`
           body {
             margin: 0;
-            background-color: #eee;
+            background-color: #f2f2f2;
             font-family: Roboto, sans-serif;
           }
         `}</style>
