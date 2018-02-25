@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":
-      "nodemon ./index.js --exec 'babel-node --inspect' -r dotenv/config database.js",
+    "dev": "nodemon ./index.js --exec 'babel-node --inspect'",
     "start": "babel-node ./index.js",
     "populate": "babel-node ./populateDatabase.js"
   },

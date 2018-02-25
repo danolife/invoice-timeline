@@ -2,6 +2,10 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import _ from "lodash";
 import moment from "moment";
+import StatusEvent from "./TimelineEvents/StatusEvent";
+import ReminderEvent from "./TimelineEvents/ReminderEvent";
+import CommentEvent from "./TimelineEvents/CommentEvent";
+import PaymentEvent from "./TimelineEvents/PaymentEvent";
 
 const InvoiceTimeline = ({ data: { loading, invoice } }) => {
   if (loading) {
@@ -14,14 +18,23 @@ const InvoiceTimeline = ({ data: { loading, invoice } }) => {
     ...invoice.statuses
   ];
   events = _.orderBy(events, event => moment(event.createdAt), "desc");
+
+  // Reference each component in order to use them dynamically below
+  const eventComponents = {
+    StatusEvent,
+    ReminderEvent,
+    CommentEvent,
+    PaymentEvent
+  };
+
   return (
     <div>
-      {events.map(event => (
-        <div key={event.__typename + event.id}>
-          {event.__typename}{" "}
-          {moment(event.createdAt).format("YYYY-MM-DD [at] HH:mm")}
-        </div>
-      ))}
+      {events.map(event => {
+        const CustomEventTag = eventComponents[`${event.__typename}Event`];
+        return (
+          <CustomEventTag key={event.__typename + event.id} event={event} />
+        );
+      })}
     </div>
   );
 };
