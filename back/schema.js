@@ -58,6 +58,7 @@ enum StatusNames {
 type Query {
   invoices: [Invoice]
   invoice(id: Int!): Invoice
+  user: User
 }
 type Mutation {
   addComment(invoiceId: Int!, content: String!): Comment

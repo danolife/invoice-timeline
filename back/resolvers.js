@@ -3,7 +3,8 @@ import { Invoice, Comment, User, Status } from "./database";
 const resolvers = {
   Query: {
     invoices: () => Invoice.findAll(),
-    invoice: (r, { id }) => Invoice.findById(id)
+    invoice: (r, { id }) => Invoice.findById(id),
+    user: () => User.findOne()
   },
   Mutation: {
     addComment: async (r, { invoiceId, content }) => {
