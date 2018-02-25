@@ -14,6 +14,15 @@ const InvoiceStatusModifier = ({ data, mutate }) => {
     });
   };
 
+  const startDispute = () => {
+    mutate({
+      variables: {
+        id: data.invoice.id,
+        statusName: DISPUTE
+      }
+    });
+  };
+
   if (data.loading) {
     return <div>Loading</div>;
   }
@@ -25,7 +34,7 @@ const InvoiceStatusModifier = ({ data, mutate }) => {
   return (
     <div>
       <button onClick={markAsPaid}>Mark as paid</button>
-      <button>Dispute</button>
+      <button onClick={startDispute}>Dispute</button>
     </div>
   );
 };
