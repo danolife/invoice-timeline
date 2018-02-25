@@ -11,11 +11,11 @@ export default class MyDocument extends Document {
           />
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
-        <style jsx global>{`
+        <style>{`
           body {
             margin: 0;
             background-color: #eee;
-            font-family: "Roboto", sans-serif;
+            font-family: Roboto, sans-serif;
           }
         `}</style>
         <body>
