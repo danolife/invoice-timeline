@@ -2,6 +2,7 @@ import { Component } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { timelineQuery } from "./InvoiceTimeline";
+import css from "./AddComment.scss";
 
 class AddComment extends Component {
   state = {
@@ -29,6 +30,7 @@ class AddComment extends Component {
   render = () => (
     <form onSubmit={this.handleSubmission}>
       <textarea
+        className={css.textarea}
         rows="4"
         value={this.state.comment}
         onChange={this.handleChange}
