@@ -1,9 +1,19 @@
-import { Invoice } from "./database";
+import { Invoice, Comment, User } from "./database";
 
 const resolvers = {
   Query: {
     invoices: () => Invoice.findAll(),
     invoice: (r, { id }) => Invoice.findById(id)
+  },
+  Mutation: {
+    addComment: async (r, { invoiceId, content }) => {
+      const createdBy = await User.findOne();
+      return Comment.create({
+        body: content,
+        invoiceId,
+        createdById: createdBy.id
+      });
+    }
   },
   Invoice: {
     comments: invoice => invoice.getComments(),
@@ -26,7 +36,8 @@ const resolvers = {
       })
   },
   Comment: {
-    createdBy: comment => comment.getCreatedBy()
+    createdBy: comment => comment.getCreatedBy(),
+    invoice: comment => comment.getInvoice()
   }
 };
 

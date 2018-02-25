@@ -25,6 +25,7 @@ type Comment {
   createdAt: String
   createdBy: User
   body: String
+  invoice: Invoice
 }
 type Payment {
   id: ID
@@ -57,6 +58,9 @@ enum StatusNames {
 type Query {
   invoices: [Invoice]
   invoice(id: Int!): Invoice
+}
+type Mutation {
+  addComment(invoiceId: Int!, content: String!): Comment
 }
 `;
 

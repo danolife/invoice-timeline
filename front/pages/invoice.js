@@ -3,6 +3,7 @@ import InvoiceStatus from "../components/InvoiceStatus";
 import InvoiceTimeline from "../components/InvoiceTimeline";
 import App from "../components/App";
 import withData from "../lib/withData";
+import AddComment from "../components/AddComment";
 
 const invoice = ({ url: { query: { id } } }) => (
   <App>
@@ -12,6 +13,8 @@ const invoice = ({ url: { query: { id } } }) => (
     <InvoiceDetails id={id} />
     <h3>Status</h3>
     <InvoiceStatus id={id} />
+    <h3>Add comment</h3>
+    <AddComment invoiceId={id} />
     <h3>Timeline</h3>
     <InvoiceTimeline id={id} />
   </App>
