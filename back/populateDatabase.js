@@ -7,12 +7,13 @@ import {
   Comment,
   Reminder
 } from "./database";
+import { DUE, OVERDUE, PAID } from "../invoiceStatuses";
 import faker from "faker";
 import moment from "moment";
 import { database } from "./database";
 
 const createRandomStatus = async () => {
-  const name = await faker.random.arrayElement(["DUE", "OVERDUE", "PAID"]);
+  const name = await faker.random.arrayElement([DUE, OVERDUE, PAID]);
   return Status.create({ name });
 };
 

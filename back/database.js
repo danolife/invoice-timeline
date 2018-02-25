@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-
+import { DUE, OVERDUE, PAID, DISPUTE } from "../invoiceStatuses";
 require("dotenv").config();
 
 const database = new Sequelize(
@@ -39,7 +39,7 @@ const Reminder = database.define("reminder", {
 const Status = database.define("status", {
   name: {
     type: Sequelize.ENUM,
-    values: ["DUE", "OVERDUE", "PAID", "DISPUTE"]
+    values: [DUE, OVERDUE, PAID, DISPUTE]
   }
 });
 
