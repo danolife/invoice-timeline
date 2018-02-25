@@ -8,7 +8,6 @@ import InvoiceStatusModifier from "../components/InvoiceStatusModifier";
 
 const invoice = ({ url: { query: { id } } }) => (
   <App>
-    <h1>InvoiceX</h1>
     <h2>Invoice details</h2>
     <h3>Details</h3>
     <InvoiceDetails id={id} />

@@ -4,7 +4,6 @@ import withData from "../lib/withData";
 
 const index = () => (
   <App>
-    <h1>InvoiceX</h1>
     <InvoiceList />
   </App>
 );
