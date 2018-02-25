@@ -6,8 +6,8 @@ const CommentEvent = ({ event }) => {
   return (
     <Event
       icon="commenting-o"
-      date={moment(event.createdAt).format("YYYY-MM-DD [at] HH:mm")}
-      title="Someone added a comment"
+      date={moment(comment.createdAt).format("YYYY-MM-DD [at] HH:mm")}
+      title={`${comment.createdBy.name} added a comment`}
     >
       {comment.body}
     </Event>

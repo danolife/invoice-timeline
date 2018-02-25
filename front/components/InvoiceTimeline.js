@@ -48,6 +48,10 @@ export const timelineQuery = gql`
         id
         body
         createdAt
+        createdBy {
+          id
+          name
+        }
       }
       reminders {
         id

@@ -24,6 +24,9 @@ const resolvers = {
       invoice.getStatuses({
         order: [["createdAt", "DESC"]]
       })
+  },
+  Comment: {
+    createdBy: comment => comment.getCreatedBy()
   }
 };
 

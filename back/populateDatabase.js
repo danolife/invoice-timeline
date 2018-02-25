@@ -102,6 +102,7 @@ const populate = async () => {
 
     for (let i = 0; i < 3; i++) {
       const comment = await createComment(invoice);
+      await comment.setCreatedBy(user);
       await invoice.addComment(comment);
     }
 
